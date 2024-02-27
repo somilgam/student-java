@@ -20,7 +20,7 @@ public class StudentController {
     @PostMapping("/add")
     public ResponseEntity<Long> addStudent(@RequestBody Student student) {
         Long id = studentsById.size() + 1L; // Generate ID
-        student.setId(id);
+        student.id = id;
         studentsById.put(id, student);
 
         studentsByUniversity.computeIfAbsent(student.getUniversity(), k -> new ArrayList<>()).add(student);
